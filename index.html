@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<body>
+<center>
+<style>
+hr {
+    border-width: 0px;
+}
+</style>
+<h1>Tarefa 10</h1>
+<input type="number" id="primeiro_valor" readonly style="text-align: center; width: 45px;">
+<input type="number" id="segundo_valor" readonly style="text-align: center; width: 45px;">
+<input type="number" id="terceiro_valor" readonly style="text-align: center; width: 45px;">
+<hr>
+<button type="button" onclick="sortear(); ordem()">Sortear Números</button>
+<hr>
+<p id="ordem"></p>
+<p id="parabens"></p>
+<script>
+function sortear() {
+    let x = Math.floor(Math.random() * 100) + 1
+    document.getElementById("primeiro_valor").value = x
+    let y = Math.floor(Math.random() * 100) + 1
+    document.getElementById("segundo_valor").value = y
+    let z = Math.floor(Math.random() * 100) + 1
+    document.getElementById("terceiro_valor").value = z
+}
+
+function ordem() {
+    let x, y, z
+    x = parseInt(document.getElementById("primeiro_valor").value)
+    y = parseInt(document.getElementById("segundo_valor").value)
+    z = parseInt(document.getElementById("terceiro_valor").value)
+    if (x < y && y < z) {
+        document.getElementById("ordem").innerHTML=
+        x + " < " + y + " < " + z 
+    } else if (x < z && z < y){
+        document.getElementById("ordem").innerHTML=
+        x + " < " + z + " < " + y
+    } else if (y < z && z < x) {
+        document.getElementById("ordem").innerHTML=
+        y + " < " + z + " < " + x
+    } else if (y < x && x < z) {
+        document.getElementById("ordem").innerHTML=
+        y + " < " + x + " < " + z
+    } else if (z < x && x < y) {
+        document.getElementById("ordem").innerHTML=
+        z + " < " + x + " < " + y
+    } else if (z < y && y < x) {
+        document.getElementById("ordem").innerHTML=
+        z + " < " + y + " < " + x                         
+    } else if (x == y && y < z) {
+        document.getElementById("ordem").innerHTML=
+        x + " = " + y + " < " + z 
+    } else if (x == z && z < y){
+        document.getElementById("ordem").innerHTML=
+        x + " = " + z + " < " + y
+    } else if (y == z && z < x) {
+        document.getElementById("ordem").innerHTML=
+        y + " = " + z + " < " + x
+    } else if (y == x && x < z) {
+        document.getElementById("ordem").innerHTML=
+        y + " = " + x + " < " + z
+    } else if (z == x && x < y) {
+        document.getElementById("ordem").innerHTML=
+        z + " = " + x + " < " + y
+    } else if (z == y && y < x) {
+        document.getElementById("ordem").innerHTML=
+        z + " = " + y + " < " + x   
+    } else if (x < y && y == z) {
+        document.getElementById("ordem").innerHTML=
+        x + " < " + y + " = " + z 
+    } else if (x < z && z == y){
+        document.getElementById("ordem").innerHTML=
+        x + " < " + z + " = " + y
+    } else if (y < z && z == x) {
+        document.getElementById("ordem").innerHTML=
+        y + " < " + z + " = " + x
+    } else if (y < x && x == z) {
+        document.getElementById("ordem").innerHTML=
+        y + " < " + x + " = " + z
+    } else if (z < x && x == y) {
+        document.getElementById("ordem").innerHTML=
+        z + " < " + x + " = " + y
+    } else if (z < y && y == x) {
+        document.getElementById("ordem").innerHTML=
+        z + " < " + y + " = " + x                                  
+    } else if (x == y && y == x) {
+        document.getElementById("ordem").innerHTML=
+        z + " = " + y + " = " + x 
+        document.getElementById("parabens").innerHTML=
+        "Parabéns! A chance de os três numeros sorteados serem iguais é de 1 em 161700!"                          
+    }
+}
+
+</script>
+</center>
+</body>
+</html>
